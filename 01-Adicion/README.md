@@ -26,7 +26,7 @@ a, b e Z (enteros)
 
 *Visual*
 
-![Haga click para ver el diagrama de flujo](https://drive.google.com/open?id=1JeIMsn9Dt6uiaMTW-LNq1BUYSp4XeRDr/ddf.png)
+[Haga click para ver el diagrama de flujo](https://drive.google.com/file/d/1JGMGlDPPaL0PJLeJ9vRP8P4VUbgpYFVO/view?usp=sharing)
 
 *Textual:*
 
