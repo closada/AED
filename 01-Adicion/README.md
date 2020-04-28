@@ -24,13 +24,13 @@ a, b e Z (enteros)
 
 **Representación del algoritmo:**
 
-*Visual*
+*Visual:*
 
 [Haga click para ver el diagrama de flujo](https://drive.google.com/file/d/1JGMGlDPPaL0PJLeJ9vRP8P4VUbgpYFVO/view?usp=sharing)
 
 *Textual:*
 
-Pseudocógico:
+Pseudocógico:  
 Leer a.  
 Leer b.  
 Definir c = a + b.  
