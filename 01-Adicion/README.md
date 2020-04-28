@@ -1,8 +1,8 @@
-#Camila Victoria Losada - Legajo 167356-7#
+# Camila Victoria Losada - Legajo 167356-7
 
-##Compilador usado: g++##
+## Compilador usado: g++
 
-###ETAPA 1:###
+### ETAPA 1:
 
 **Transcripción del problema:**
 
@@ -16,7 +16,7 @@ Para esto, el mismo debe declarar dos variables (en este caso "a" y "b") del tip
 
 ![alt text](https://drive.google.com/open?id=1CPlhJOIiz0MUg3GBn2tDcyKGcaecOdzM/ipo.png)
 
-###ETAPA 2:
+### ETAPA 2:
 
 **Léxico:**
 
@@ -31,8 +31,8 @@ a, b e Z (enteros)
 *Textual:*
 
 Pseudocógico:
-Leer a.
-Leer b.
-Definir c = a + b.
-Mostrar C.
+Leer a.  
+Leer b.  
+Definir c = a + b.  
+Mostrar C.  
 
