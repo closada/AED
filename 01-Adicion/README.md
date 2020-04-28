@@ -1,8 +1,8 @@
-#Camila Victoria Losada - Legajo 167356-7
+#Camila Victoria Losada - Legajo 167356-7#
 
-##Compilador usado: g++
+##Compilador usado: g++##
 
-###ETAPA 1:
+###ETAPA 1:###
 
 **Transcripción del problema:**
 
