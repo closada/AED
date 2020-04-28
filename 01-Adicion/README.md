@@ -14,7 +14,7 @@ Para esto, el mismo debe declarar dos variables (en este caso "a" y "b") del tip
 
 **Modelo IPO:**
 
-![alt text](https://drive.google.com/open?id=1CPlhJOIiz0MUg3GBn2tDcyKGcaecOdzM/ipo.png)
+![Haga click para ver el gráfico del modelo IPO](https://drive.google.com/open?id=1JeIMsn9Dt6uiaMTW-LNq1BUYSp4XeRDr/ipo.png)
 
 ### ETAPA 2:
 
@@ -26,7 +26,7 @@ a, b e Z (enteros)
 
 *Visual*
 
-![alt text](https://drive.google.com/open?id=1JGMGlDPPaL0PJLeJ9vRP8P4VUbgpYFVO/ddf.png)
+![Haga click para ver el diagrama de flujo](https://drive.google.com/open?id=1JeIMsn9Dt6uiaMTW-LNq1BUYSp4XeRDr/ddf.png)
 
 *Textual:*
 
