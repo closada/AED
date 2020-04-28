@@ -14,7 +14,7 @@ Para esto, el mismo debe declarar dos variables (en este caso "a" y "b") del tip
 
 **Modelo IPO:**
 
-![Haga click para ver el gráfico del modelo IPO](https://drive.google.com/open?id=1JeIMsn9Dt6uiaMTW-LNq1BUYSp4XeRDr/ipo.png)
+![Haga click para ver el gráfico del modelo IPO](https://drive.google.com/open?id=1CPlhJOIiz0MUg3GBn2tDcyKGcaecOdzM)
 
 ### ETAPA 2:
 
