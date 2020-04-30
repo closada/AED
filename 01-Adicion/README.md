@@ -6,11 +6,11 @@
 
 **Transcripción del problema:**
 
-El programa deberá realizar la suma de dos números que ingrese el usuario.
+Realizar la suma de dos números que determine el usuario.
 
 **Refinamiento e hipótesis de trabajo:**
 
-Para esto, el mismo debe declarar dos variables (en este caso "a" y "b") del tipo entero, solicitar los datos al usuario a través de la terminal y luego imprimir la suma por la pantalla.
+El programa debe declarar dos variables (en este caso "a" y "b") del tipo entero, solicitar los datos al usuario a través de la terminal y luego imprimir la suma por la pantalla.
 
 **Modelo IPO:**
 
