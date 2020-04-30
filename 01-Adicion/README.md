@@ -26,7 +26,7 @@ a, b e Z (enteros)
 
 *Visual:*
 
-[Diagrama de flujo](https://github.com/closada/AED/blob/master/Imgs/DIAGRAMA%20DE%20FLUJO.png)
+![Diagrama de flujo](https://github.com/closada/AED/blob/master/Imgs/DIAGRAMA%20DE%20FLUJO.png)
 
 *Textual:*
 
