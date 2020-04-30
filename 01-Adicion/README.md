@@ -34,5 +34,5 @@ Pseudocógico:
 Leer a.  
 Leer b.  
 Definir c = a + b.  
-Mostrar C.  
+Mostrar c.    
 
