@@ -14,7 +14,7 @@ Para esto, el mismo debe declarar dos variables (en este caso "a" y "b") del tip
 
 **Modelo IPO:**
 
-![Modelo IPO](https://raw.githubusercontent.com/closada/AED/master/Imgs/MODELOIPO.png)
+![Modelo IPO](https://github.com/closada/AED/blob/master/Imgs/MODELO%20IPO.png)
 
 ### ETAPA 2:
 
