@@ -20,7 +20,7 @@ El programa debe declarar dos variables (en este caso "a" y "b") del tipo entero
 
 **Léxico:**
 
-a, b e Z (enteros)
+a, b, c e Z (enteros)
 
 **Representación del algoritmo:**
 
