@@ -1,5 +1,8 @@
 # Camila Victoria Losada - Legajo 167356-7
 ## Compilador usado: g++
+### Trabajo
+El problema a resolver es ejemplificar los distintos tipos de datos básicos en C++.
+*Restricciones* No se puede utilizar cin; se debe trabajar con datos constantes.
 ### Tipos de datos basicos en C++:
 - **bool (booleano)**: sirve para representar valores de logica binaria (1 y 0)
 - **char (caracter)**: representa un caracter-simbolo de la tabla ASCII
