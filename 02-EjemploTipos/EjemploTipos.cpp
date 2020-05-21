@@ -3,7 +3,7 @@
 Tipos de Datos */
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <cassert>
 
 int main() {
