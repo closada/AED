@@ -29,5 +29,5 @@ i = i + 1;
 assert(i == -1);
 assert(caracter  == 67);
 assert(cadena + " en C++" == "Cadena de Texto en C++");
-assert(numero + 1 == 2.53 + 1);
+assert(numero + 1.0 == 3.53);
 }
