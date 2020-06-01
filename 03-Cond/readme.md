@@ -1,7 +1,9 @@
 # Camila Victoria Losada - Legajo 167356-7
 ## Compilador usado: g++
 ### Función valor Absoluto
-**Léxico:**
+**Léxico:**  
+
+![Funcion Absoluto](https://github.com/closada/AED/blob/master/Imgs/ABS.JPG)  
 
 **Prueba:**
 
@@ -11,7 +13,10 @@
 
 ### Función mínimo entre dos valores
 
-**Léxico:**
+**Léxico:**  
+
+![Funcion Minimo](https://github.com/closada/AED/blob/master/Imgs/MIN.JPG)  
+
 
 **Prueba:**
 
@@ -21,7 +26,10 @@
 
 ### Función 3
 
-**Léxico:**
+**Léxico:**  
+
+![Funcion 3](https://github.com/closada/AED/blob/master/Imgs/F3.JPG)  
+
 
 **Prueba:**
 
