@@ -5,11 +5,16 @@
 
 ![Funcion Absoluto](https://github.com/closada/AED/blob/master/Imgs/ABS.JPG)  
 
-**Prueba:**
+**Prueba:**  
 
-**Prototipo:**
+assert(3 == Abs(3));  
+assert (3.75 == Abs(-3.75));  
 
-**Definición:**
+**Prototipo:**  
+double Abs (double);  
+
+**Definición:**  
+double Abs(double x){return x<0 ? -x : x;}
 
 ### Función mínimo entre dos valores
 
@@ -18,11 +23,16 @@
 ![Funcion Minimo](https://github.com/closada/AED/blob/master/Imgs/MIN.JPG)  
 
 
-**Prueba:**
+**Prueba:**  
+assert(4 == Min(5,4));  
+assert(-3.4 == Min(-3.4,1));  
+assert(2.4554 == Min(2.4554,2.5));  
 
-**Prototipo:**
+**Prototipo:**  
+double Min (double, double);
 
-**Definición:**
+**Definición:**  
+double Min(double x, double y){return x<y ? x : y;}
 
 ### Función 3
 
@@ -31,8 +41,16 @@
 ![Funcion 3](https://github.com/closada/AED/blob/master/Imgs/F3.JPG)  
 
 
-**Prueba:**
+**Prueba:**  
+assert(-3 == funcion(3));  
+assert(3.1 == funcion(3.1));  
+assert(3 == funcion(-3));  
+assert(4.1 == funcion(4.1));  
+assert(2 == funcion(-2));  
+assert(-1 == funcion(1));  
 
-**Prototipo:**
+**Prototipo:**  
+double funcion (double);
 
-**Definición:**
+**Definición:**  
+double funcion(double x){return x>=-3 and x<=3 ? -x : x;}  
