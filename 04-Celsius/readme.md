@@ -3,7 +3,7 @@
 ### Función Celsius
 **Léxico:**  
 
-![Funcion Absoluto](https://github.com/closada/AED/blob/master/Imgs/ABS.JPG)  
+![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
 
 **Pruebas:**  
 
