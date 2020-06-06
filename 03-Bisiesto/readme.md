@@ -9,11 +9,11 @@ Tomar en cuenta que el año debe ser mayor o igual a 1582; caso contrario el boo
 
 **Modelo IPO:**  
 
-![IPO BISIESTO](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![IPO BISIESTO](https://github.com/closada/AED/blob/master/Imgs/IPOBISIESTO.JPG)  
 
 **Léxico:**  
 
-![Funcion Binario](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![Funcion Binario](https://github.com/closada/AED/blob/master/Imgs/BISIESTO.JPG)  
 
 #### *Dominio del problema*  
 
