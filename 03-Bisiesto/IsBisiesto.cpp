@@ -23,4 +23,4 @@ assert (false == IsBisiesto(2100));
 }
 
 bool IsBisiesto (unsigned anio) {return 
-anio>=1582 and ((anio%4==0 and  anio%100!=0) or (anio%4==0 and  anio%100==0 and anio%400==0)) ? true : false;}
+anio>=1582 and anio%4==0 and(anio%100!=0 or (anio%100==0 and anio%400==0)) ? true : false;}
