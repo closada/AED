@@ -39,3 +39,8 @@ bool IsBisiesto (unsigned);
 **Definición:**  
 bool IsBisiesto (unsigned anio) {return 
 anio>=1582 and anio%4==0 and(anio%100!=0 or (anio%100==0 and anio%400==0)) ? true : false;}  
+
+**Definición:**  
+
+![Arbol de Expresion](https://github.com/closada/AED/blob/master/Imgs/arbol_expresion_bisiesto.JPG)  
+
