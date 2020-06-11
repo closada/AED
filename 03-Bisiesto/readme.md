@@ -18,18 +18,18 @@ Tomar en cuenta que el año debe ser mayor o igual a 1582; caso contrario el boo
 #### *Dominio del problema*  
 
 **Pruebas:**  
-assert (true == IsBisiesto(2020));  
-assert (true == IsBisiesto(2000));  
-assert (true == IsBisiesto(1600));  
-assert (true == IsBisiesto(2400));  
-assert (true == IsBisiesto(2016));  
+assert (IsBisiesto(2020));  
+assert (IsBisiesto(2000));  
+assert (IsBisiesto(1600));  
+assert (IsBisiesto(2400));  
+assert (IsBisiesto(2016));  
 
-assert (false == IsBisiesto(1582));  
-assert (false == IsBisiesto(2021));  
-assert (false == IsBisiesto(1700));  
-assert (false == IsBisiesto(1800));  
-assert (false == IsBisiesto(1900));  
-assert (false == IsBisiesto(2100));  
+assert (not IsBisiesto(1582));  
+assert (not IsBisiesto(2021));  
+assert (not IsBisiesto(1700));  
+assert (not IsBisiesto(1800));  
+assert (not IsBisiesto(1900));  
+assert (not IsBisiesto(2100));  
   
 
 **Prototipo:**  
