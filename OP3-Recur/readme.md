@@ -5,13 +5,13 @@
 
 **Modelo IPO:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![IPO DIV](https://github.com/closada/AED/blob/master/Imgs/IPODIV.JPG)  
 
 *Dominio de la solucion*  
 
 **Léxico:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![Funcion Div](https://github.com/closada/AED/blob/master/Imgs/DIV.JPG)  
 
 **Pruebas:**  
 
@@ -38,13 +38,13 @@ Div(Dividendo - Divisor, Divisor)+1;}
 
 **Modelo IPO:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![IPO Mcd](https://github.com/closada/AED/blob/master/Imgs/IPOMCD.JPG)  
 
 *Dominio de la solucion*  
 
 **Léxico:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![Funcion MCD](https://github.com/closada/AED/blob/master/Imgs/MCD.JPG)  
 
 **Pruebas:**  
 
@@ -71,13 +71,13 @@ Mcd(b, a%b);}
 
 **Modelo IPO:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![IPO FACTORIAL](https://github.com/closada/AED/blob/master/Imgs/IPOFACTORIAL.JPG)  
 
 *Dominio de la solucion*  
 
 **Léxico:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![Funcion FACTORIAL](https://github.com/closada/AED/blob/master/Imgs/FACTORIAL.JPG)  
 
 **Pruebas:**  
 
@@ -103,13 +103,13 @@ n * Factorial(n-1);}
 
 **Modelo IPO:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![IPO FIBONACCI](https://github.com/closada/AED/blob/master/Imgs/IPOBFIBONACCI.JPG)  
 
 *Dominio de la solucion*  
 
 **Léxico:**  
 
-![Funcion CELSIUS](https://github.com/closada/AED/blob/master/Imgs/CELSIUS.JPG)  
+![Funcion FIBONACCI](https://github.com/closada/AED/blob/master/Imgs/FIBONACCI.JPG)  
 
 **Pruebas:**  
 
