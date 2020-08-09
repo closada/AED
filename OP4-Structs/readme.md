@@ -4,7 +4,7 @@
 
 **Léxico:**  
 
-![Funcion Punto](https://github.com/closada/AED/blob/master/Imgs/DIV.JPG)  
+![Funcion Punto](https://github.com/closada/AED/blob/master/Imgs/PUNTO.JPG)  
 
 **Definición en C++:**  
 
@@ -15,37 +15,37 @@ struct Punto {double x,y;};
 
 **Léxico:**  
 
-![Funcion Circulo](https://github.com/closada/AED/blob/master/Imgs/DIV.JPG)  
+![Funcion Circulo](https://github.com/closada/AED/blob/master/Imgs/CIRCULO.JPG)  
 
 **Definición en C++:**  
 
 struct Punto {double x,y;}; /*ESTRUCTURA*/  
 
-struct Circulo {double radio; Punto centro;}; /*ESTRUCTURA*/  
+struct Circulo {double radio; Punto centro;}; /*ESTRUCTURA*/   
 
 
 ### *Definicion Triangulo*
 
 **Léxico:**  
 
-![Funcion Triangulo](https://github.com/closada/AED/blob/master/Imgs/DIV.JPG)  
+![Funcion Triangulo](https://github.com/closada/AED/blob/master/Imgs/TRIANGULO.JPG)  
 
 **Definiciones en C++:**  
 
-struct Punto {double x,y;}; /*ESTRUCTURA*/
-struct Triangulo {Punto p1,p2,p3;}; /*TUPLA*/
-using TipoTriangulo = std::array<Punto,3>; /*ARRAY TRIANGULO */
+struct Punto {double x,y;}; /*ESTRUCTURA*/  
+struct Triangulo {Punto p1,p2,p3;}; /*TUPLA*/  
+using TipoTriangulo = std::array<Punto,3>; /*ARRAY TRIANGULO */  
 
 
 ### *Definicion Rectangulo*
 
 **Léxico:**  
 
-![Funcion Rectangulo](https://github.com/closada/AED/blob/master/Imgs/DIV.JPG)  
+![Funcion Rectangulo](https://github.com/closada/AED/blob/master/Imgs/RECTANGULO.JPG)  
 
 **Definiciones en C++:**  
 
-struct Punto {double x,y;}; /*ESTRUCTURA*/
-struct Rv01 {Punto p1,p2,p3,p4;}; /*TUPLA*/
-using Rv02 = std::array<Punto,4>; /*ARRAY Rectangulo*/
-struct Rv03 {double base, altura;}; /* ESTRUCTURA con base y altura */
+struct Punto {double x,y;}; /*ESTRUCTURA*/  
+struct Rv01 {Punto p1,p2,p3,p4;}; /*TUPLA*/  
+using Rv02 = std::array<Punto,4>; /*ARRAY Rectangulo*/   
+struct Rv03 {double base, altura;}; /* ESTRUCTURA con base y altura */  
