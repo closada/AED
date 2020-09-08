@@ -23,15 +23,31 @@ bool IsIgual (const Color&, const Color&);
 void ImprimirColor (const Color&);
 
 
-Color const rojo {255,0,0}, azul{0,0,255}, verde{0,255,0}, cyan{0,255,255}, magenta{255,0,255}, amarillo{255,255,0}, negro{0,0,0}, blanco{255,255,255};
+Color const rojo {255,0,0}, azul{0,0,255}, verde{0,255,0}, cyan{0,255,255}, magenta{255,0,255}, amarillo{255,255,0};
+Color const negro = Restar(rojo,rojo);
+Color const blanco = Sumar(Sumar(rojo,verde),azul);
 
 int main () {
-
+//uint8_t n = 6;
 std::string hexa;
 Color pruebas;
 //ImprimirColor(MezclarDosColoresenPIguales(azul,amarillo));
 //ImprimirColor(MezclarDosColoresProporcion(azul,80,amarillo,20));
 //ImprimirColor(GetComplementario(rojo));
+
+//ImprimirColor(rojo);
+//ImprimirColor(blanco);
+//ImprimirColor(negro);
+
+pruebas = Sumar(rojo,rojo);
+assert (pruebas.R == 255);
+assert (pruebas.G == 0);
+assert (pruebas.B == 0);
+
+pruebas = Restar(amarillo,cyan);
+assert (pruebas.R == 255);
+assert (pruebas.G == 0);
+assert (pruebas.B == 255);
 
 pruebas = MezclarDosColoresenPIguales(azul,amarillo);
 assert (pruebas.R == 127);
@@ -75,7 +91,7 @@ return Final;
 };
 
 void ImprimirColor (const Color& c){
-std::cout << "RGB(" << c.R << "," << c.G << "," << c.B << ")\n";
+std::cout << "RGB(" << std::to_string(c.R) << "," << std::to_string(c.G) << "," << std::to_string(c.B) << ")\n";
 };
 
 Color MezclarDosColoresProporcion (const Color& c1, unsigned p1, const Color& c2, unsigned p2){
@@ -104,9 +120,15 @@ return Suma;
 
 Color Restar (const Color& c1,const Color& c2) {
 Color Resta;
-c1.R - c2.R > 255 ? Resta.R = 255 : Resta.R = c1.R - c2.R;
-c1.G - c2.G > 255 ? Resta.G = 255 : Resta.G = c1.G - c2.G;
-c1.B - c2.B > 255 ? Resta.B = 255 : Resta.B = c1.B - c2.B;
+c1.R - c2.R < 0 ? Resta.R = c2.R - c1.R :
+Resta.R = c1.R - c2.R;
+
+c1.G - c2.G < 0 ? Resta.G = c2.G - c1.G :
+Resta.G = c1.G - c2.G;
+
+c1.B - c2.B < 0 ? Resta.B = c2.B - c1.B :
+Resta.B = c1.B - c2.B;
+
 return Resta;
 };
 
