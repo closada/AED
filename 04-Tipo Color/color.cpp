@@ -134,7 +134,7 @@ return "rgb(" + std::to_string(hexa1) + "," + std::to_string(hexa2) + "," + std:
 
 void CrearSvgConTextoEscritoEnAltoContr(std::string nombre, std::string mensaje, const Color& c){
 std::ofstream file;
-file.open("C:/CAMILA/UTN/AED 2020/TPS/" + nombre + ".svg");
+file.open(nombre + ".svg");
 file << "<svg xmlns='http://www.w3.org/2000/svg'>\n";
 file << "<rect x='0' y='0' height='100' width='500' style='fill: " << GetHtmlHex(GetComplementario(c)) << "'/> \n";
 file << "<text x='5' y='18' style='fill: " << GetHtmlRgb(GetHtmlHex(c)) << ";background-color: "<<GetHtmlHex(GetComplementario(c)) <<"#ff0000'>\n";
