@@ -6,6 +6,7 @@ Tipo de dato Triangulo */
 #include <array>
 #include <cmath>
 #include <cassert>
+#include <cstdint>
 
 struct Punto {
    double x, y;
