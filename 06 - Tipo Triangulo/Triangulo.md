@@ -9,44 +9,67 @@
 **Definición en C++:**  
 
 struct Punto {  
-   std::array <double,2> Coord;   
+   double x, y;  
 };  
+
+struct Color {uint8_t R,G,B;};  
+
 struct Triangulo {  
-    std::array <Punto,3> Puntos;  
-    std::array<unsigned,3> Color; //color designado con formato RGB (--,--,--) numeros del 0 al 255  
+    Punto a,b,c;  
+    Color color; //color designado con formato RGB (--,--,--) numeros del 0 al 255  
+
 };  
+
+enum struct TipoTriangulo {Escaleno, Isosceles, Equilatero, otro};  
 
 **Prototipos de funciones:**  
 
-void CambiarColor (Triangulo&, unsigned, unsigned, unsigned);  
+double GetDistancia (Punto,Punto);  
+void CambiarColor (Triangulo&, const Color&);  
 void DefPuntos (Triangulo&, const Punto&,const Punto&,const Punto&);  
-void ImprimirPuntos (const Triangulo&);  
+std::string ImprimirPuntos (const Triangulo&);  
 double GetPerimetro (const Triangulo&);  
 void CambiarPuntoEnPos (Triangulo&,Punto, unsigned); // triangulo, nuevo punto, posicion punto a reemplazar en el array Puntos  
 double GetArea (const Triangulo&);  
 bool IsEscaleno (const Triangulo&);  
 bool IsEquilatero (const Triangulo&);  
 bool IsIsosceles (const Triangulo&);  
-
+TipoTriangulo GetTipo (const Triangulo&);  
+Punto GetCentro (const Triangulo&);  
 
 **Pruebas:**  
 
-CambiarColor(t1, 127,56,0);  
-assert (t1.Color.at(0) == 127);  
-assert (t1.Color.at(1) == 56);  
-assert (t1.Color.at(2) == 0);  
+CambiarColor(t1,blanco);  
+assert (t1.color.R == 255);  
+assert (t1.color.G == 255);  
+assert (t1.color.B == 255);  
 
-DefPuntos(t,{{2,1}},{{-3,0}},{{0,0}});  
-assert(t.Puntos.at(0).Coord.at(0) == 2);  
-assert(t.Puntos.at(0).Coord.at(1) == 1);  
-assert(t.Puntos.at(1).Coord.at(0) == -3);  
-assert(t.Puntos.at(1).Coord.at(1) == 0);  
-assert(t.Puntos.at(2).Coord.at(0) == 0);  
-assert(t.Puntos.at(2).Coord.at(1) == 0);  
+DefPuntos(t,{2,1},{-3,0},{0,0});  
+assert(t.a.x == 2);  
+assert(t.a.y == 1);  
+assert(t.b.x == -3);  
+assert(t.b.y == 0);  
+assert(t.c.x == 0);  
+assert(t.c.y == 0);  
 
 
-DefPuntos(t1,{{1,3}},{{3,-1}},{{4,2}});  
+assert (3.9 <= GetArea(t1) and GetArea(t1) <= 4.1);  
+
+DefPuntos(t1,{1,3},{3,-1},{4,2});  
+assert (10.7 <= GetPerimetro(t1) and GetPerimetro(t1) <= 10.8);  
 
 assert (not IsEscaleno(t1));  
 assert (IsIsosceles(t1));  
+assert (IsEscaleno(t));  
 
+assert (TipoTriangulo::Isosceles == GetTipo(t1));  
+assert (TipoTriangulo::Escaleno == GetTipo(t));  
+
+
+prueba = GetCentro(t1);  
+assert (prueba.x == 8);  
+assert (prueba.y == 4);  
+
+prueba = GetCentro(t);  
+assert(prueba.x == -1);  
+assert(prueba.y == 1);  
