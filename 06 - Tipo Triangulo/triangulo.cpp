@@ -8,118 +8,147 @@ Tipo de dato Triangulo */
 #include <cassert>
 
 struct Punto {
-   std::array <double,2> Coord; 
-};
-struct Triangulo {
-    std::array <Punto,3> Puntos;
-    std::array<unsigned,3> Color; //color designado con formato RGB (--,--,--) numeros del 0 al 255
+   double x, y;
 };
 
-void CambiarColor (Triangulo&, unsigned, unsigned, unsigned);
+struct Color {uint8_t R,G,B;};
+
+struct Triangulo {
+    Punto a,b,c;
+    Color color; //color designado con formato RGB (--,--,--) numeros del 0 al 255
+
+};
+
+enum struct TipoTriangulo {Escaleno, Isosceles, Equilatero, otro};
+
+double GetDistancia (Punto,Punto);
+void CambiarColor (Triangulo&, const Color&);
 void DefPuntos (Triangulo&, const Punto&,const Punto&,const Punto&);
-void ImprimirPuntos (const Triangulo&);
+std::string ImprimirPuntos (const Triangulo&);
 double GetPerimetro (const Triangulo&);
 void CambiarPuntoEnPos (Triangulo&,Punto, unsigned); // triangulo, nuevo punto, posicion punto a reemplazar en el array Puntos
 double GetArea (const Triangulo&);
 bool IsEscaleno (const Triangulo&);
 bool IsEquilatero (const Triangulo&);
 bool IsIsosceles (const Triangulo&);
+TipoTriangulo GetTipo (const Triangulo&);
+Punto GetCentro (const Triangulo&);
 
 int main () {
 Triangulo t, t1 {
-{  {{2,2}, {0,0}, {-2,2}}, },
-{{0,0,255}}
+ {2,2}, {0,0}, {-2,2},
+{0,0,255}};
 
-};
-CambiarColor(t1, 127,56,0);
-assert (t1.Color.at(0) == 127);
-assert (t1.Color.at(1) == 56);
-assert (t1.Color.at(2) == 0);
+Color blanco {255,255,255};
 
-DefPuntos(t,{{2,1}},{{-3,0}},{{0,0}});
-assert(t.Puntos.at(0).Coord.at(0) == 2);
-assert(t.Puntos.at(0).Coord.at(1) == 1);
-assert(t.Puntos.at(1).Coord.at(0) == -3);
-assert(t.Puntos.at(1).Coord.at(1) == 0);
-assert(t.Puntos.at(2).Coord.at(0) == 0);
-assert(t.Puntos.at(2).Coord.at(1) == 0);
+Punto prueba;
+
+CambiarColor(t1,blanco);
+assert (t1.color.R == 255);
+assert (t1.color.G == 255);
+assert (t1.color.B == 255);
+
+DefPuntos(t,{2,1},{-3,0},{0,0});
+assert(t.a.x == 2);
+assert(t.a.y == 1);
+assert(t.b.x == -3);
+assert(t.b.y == 0);
+assert(t.c.x == 0);
+assert(t.c.y == 0);
 
 
 //std::cout << GetArea(t1) << "\n";
-//assert (4.0 == GetArea(t1));
+assert (3.9 <= GetArea(t1) and GetArea(t1) <= 4.1);
 
-DefPuntos(t1,{{1,3}},{{3,-1}},{{4,2}});
+DefPuntos(t1,{1,3},{3,-1},{4,2});
 //std::cout << GetPerimetro(t1) << "\n";
-// assert (10.7967 == GetPerimetro(t1));
+assert (10.7 <= GetPerimetro(t1) and GetPerimetro(t1) <= 10.8);
 
 assert (not IsEscaleno(t1));
 assert (IsIsosceles(t1));
+assert (IsEscaleno(t));
+
+assert (TipoTriangulo::Isosceles == GetTipo(t1));
+assert (TipoTriangulo::Escaleno == GetTipo(t));
+
+
+prueba = GetCentro(t1);
+assert (prueba.x == 8);
+assert (prueba.y == 4);
+
+prueba = GetCentro(t);
+assert(prueba.x == -1);
+assert(prueba.y == 1);
 
 
 }
 
-void CambiarColor (Triangulo& t, unsigned red, unsigned green, unsigned blue){
-t.Color.at(0) = red;
-t.Color.at(1) = green;
-t.Color.at(2) = blue;
+double GetDistancia (Punto p1, Punto p2){
+return sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2));
+};
+
+void CambiarColor (Triangulo& t, const Color& c){
+t.color.R = c.R;
+t.color.G = c.G;
+t.color.B = c.B;
 };
 
 void DefPuntos (Triangulo& t,const Punto& p1,const Punto& p2,const Punto& p3){
-t.Puntos.at(0).Coord.at(0) = p1.Coord.at(0);
-t.Puntos.at(0).Coord.at(1) = p1.Coord.at(1);
-t.Puntos.at(1).Coord.at(0) = p2.Coord.at(0);
-t.Puntos.at(1).Coord.at(1) = p2.Coord.at(1);
-t.Puntos.at(2).Coord.at(0) = p3.Coord.at(0);
-t.Puntos.at(2).Coord.at(1) = p3.Coord.at(1);
+t.a.x = p1.x;
+t.a.y = p1.y;
+t.b.x = p2.x;
+t.b.y = p2.y;
+t.c.x = p3.x;
+t.c.y = p3.y;
 };
 
-void ImprimirPuntos (const Triangulo& t){
-std::cout << "Punto 1: (" << t.Puntos.at(0).Coord.at(0) << "," << t.Puntos.at(0).Coord.at(1) << ")\n";
-std::cout << "Punto 2: (" << t.Puntos.at(1).Coord.at(0) << "," << t.Puntos.at(1).Coord.at(1) << ")\n";
-std::cout << "Punto 3: (" << t.Puntos.at(2).Coord.at(0) << "," << t.Puntos.at(2).Coord.at(1) << ")\n";
+std::string ImprimirPuntos (const Triangulo& t){
+return "Punto 1: (" + std::to_string(t.a.x) + "," + std::to_string(t.a.y) + ")\n" + "Punto 2: (" + std::to_string(t.b.x) + "," + std::to_string(t.b.y) + ")\n" + "Punto 3: (" + std::to_string(t.c.x) + "," + std::to_string(t.c.y) + ")\n";
 };
 
 double GetPerimetro (const Triangulo& t){
-double lado1,lado2,lado3;
-lado1 = sqrt(((t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))*(t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))) + ((t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))*(t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))));
-lado2 = sqrt(((t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))*(t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))) + ((t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))*(t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))));
-lado3 = sqrt(((t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))*(t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))) + ((t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))*(t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))));
-
-return lado1 + lado2 + lado3;
+return GetDistancia(t.a,t.b) + GetDistancia (t.b,t.c) + GetDistancia (t.c,t.a);
 };
 
 void CambiarPuntoEnPos (Triangulo& t,Punto p, unsigned x){
-t.Puntos.at(x - 1).Coord.at(0) = p.Coord.at(0);
-t.Puntos.at(x - 1).Coord.at(1) = p.Coord.at(1);
+if (x == 1) {
+t.a.x = p.x;
+t.a.y = p.y;    
+};
+if (x == 2) {
+t.b.x = p.x;
+t.b.y = p.y;    
+};
+if (x == 3) {
+t.c.x = p.x;
+t.c.y = p.y;    
+};
 };
 
 double GetArea (const Triangulo& t){
-double ladoAB,ladoBC,ladoCA, S, h;
-ladoAB = sqrt(((t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))*(t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))) + ((t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))*(t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))));
-ladoBC = sqrt(((t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))*(t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))) + ((t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))*(t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))));
-ladoCA = sqrt(((t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))*(t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))) + ((t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))*(t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))));
-S = (ladoAB + ladoBC + ladoCA)/ 2;
-h = 2/ladoAB*(sqrt(S*(S-ladoBC)*(S-ladoCA)*(S- ladoAB)));
-return (ladoAB*h)/2;
+double S, h;
+S = (GetDistancia(t.a,t.b) + GetDistancia(t.b,t.c) + GetDistancia(t.c,t.a))/ 2;
+h = 2/GetDistancia(t.a,t.b)*(sqrt(S*(S-GetDistancia(t.b,t.c))*(S-GetDistancia(t.c,t.a))*(S- GetDistancia(t.a,t.b))));
+return (GetDistancia(t.a,t.b)*h)/2;
 };
 bool IsEscaleno (const Triangulo& t){
-double lado1,lado2,lado3;
-lado1 = sqrt(((t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))*(t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))) + ((t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))*(t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))));
-lado2 = sqrt(((t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))*(t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))) + ((t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))*(t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))));
-lado3 = sqrt(((t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))*(t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))) + ((t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))*(t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))));
-return lado1 != lado2 and lado1 != lado3 and lado2 != lado3? true : false;
+return (GetDistancia(t.a,t.b) != GetDistancia(t.b,t.c)) and (GetDistancia(t.a,t.b) != GetDistancia(t.c,t.a)) and (GetDistancia(t.b,t.c) != GetDistancia(t.c,t.a));
 };
 bool IsEquilatero (const Triangulo& t){
-double lado1,lado2,lado3;
-lado1 = sqrt(((t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))*(t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))) + ((t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))*(t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))));
-lado2 = sqrt(((t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))*(t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))) + ((t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))*(t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))));
-lado3 = sqrt(((t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))*(t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))) + ((t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))*(t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))));
-return lado1 == lado2 and lado1 == lado3 ? true : false;
+return (GetDistancia(t.a,t.b) == GetDistancia(t.b,t.c)) and (GetDistancia(t.a,t.b) == GetDistancia(t.c,t.a));
 };
 bool IsIsosceles (const Triangulo& t){
-double lado1,lado2,lado3;
-lado1 = sqrt(((t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))*(t.Puntos.at(1).Coord.at(0) - t.Puntos.at(0).Coord.at(0))) + ((t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))*(t.Puntos.at(1).Coord.at(1) - t.Puntos.at(0).Coord.at(1))));
-lado2 = sqrt(((t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))*(t.Puntos.at(2).Coord.at(0) - t.Puntos.at(1).Coord.at(0))) + ((t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))*(t.Puntos.at(2).Coord.at(1) - t.Puntos.at(1).Coord.at(1))));
-lado3 = sqrt(((t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))*(t.Puntos.at(0).Coord.at(0) - t.Puntos.at(2).Coord.at(0))) + ((t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))*(t.Puntos.at(0).Coord.at(1) - t.Puntos.at(2).Coord.at(1))));
-return lado1 == lado2 or lado1 == lado3 or lado2 == lado3 ? true : false;
+return (GetDistancia(t.a,t.b) == GetDistancia(t.b,t.c)) or (GetDistancia(t.a,t.b) == GetDistancia(t.c,t.a)) or (GetDistancia(t.b,t.c) == GetDistancia(t.c,t.a));
+};
+
+TipoTriangulo GetTipo (const Triangulo& t){
+return IsEscaleno(t) ? TipoTriangulo::Escaleno :
+IsEquilatero(t) ? TipoTriangulo::Equilatero :
+IsIsosceles(t) ? TipoTriangulo::Isosceles :
+TipoTriangulo::otro;
+}
+
+Punto GetCentro (const Triangulo& t){
+
+return {(t.a.x + t.b.x + t.c.x),(t.a.y + t.b.y + t.c.y)};
 };
