@@ -135,10 +135,8 @@ return sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2));
 double GetPerimetro (const Poligono& p){
 double per {0};
 for (unsigned i=0;i<p.cant_puntos; i++)
-{if (i < p.cant_puntos - 1){
-per = per + GetDistancia(p.Puntos.at(i),p.Puntos.at(i+1));}
-if (i == p.cant_puntos - 1){
-per = per + GetDistancia(p.Puntos.at(i),p.Puntos.at(0));}
+{i < p.cant_puntos - 1 ? per = per + GetDistancia(p.Puntos.at(i),p.Puntos.at(i+1)) :
+per = per + GetDistancia(p.Puntos.at(i),p.Puntos.at(0));
 };
 return per;
 };
