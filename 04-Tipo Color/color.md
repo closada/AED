@@ -4,7 +4,7 @@
 
 **Hipótesis del problema:**  
 
-Generar un tipo de dato Color en formato RGB; el mismo con cada uno de los tres componentes en uint8_8.  
+Generar un tipo de dato Color en formato RGB; el mismo con cada uno de los tres componentes en uint8_t. Los valores de los componentes se encuentran en el rango de 0 a 255.
 
 **Definición en C++:**  
 
