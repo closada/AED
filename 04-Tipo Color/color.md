@@ -2,6 +2,10 @@
 ## Compilador usado: g++
 ### *Definicion Color*
 
+**Hipótesis del problema:**  
+
+Generar un tipo de dato Color en formato RGB; el mismo con cada uno de los tres componentes en uint8_8.  
+
 **Definición en C++:**  
 
 struct Color {uint8_t R,G,B;};
@@ -30,6 +34,19 @@ bool IsIgual (const Color&, const Color&);
 void ImprimirColor (const Color&);  
 
 
+**Modelos IPO de las funciones:**  
+
+Color x Color -> MezclarDosColoresenPIguales -> Color  
+Color x Color x proporcion x proporcion -> MezclarDosColoresProporcion -> Color  
+Color -> GetComplementario -> Color  
+Color x Color -> Sumar -> Color  
+Color x Color -> Restar -> Color  
+Color -> GetHtmlHex -> string (cadena)  
+string (cadena) -> GetHtmlRgb -> string (cadena)  
+string x string x string x Color -> CrearSvgConTextoEscritoEnAltoContr -> vacío  
+Color x Color -> IsIgual -> bool  
+Color -> ImprimirColor -> vacío  
+
 **Pruebas:**  
 
 pruebas = MezclarDosColoresenPIguales(azul,amarillo);  
@@ -49,11 +66,11 @@ assert (pruebas.R == 0);
 assert (pruebas.G == 255);  
 assert (pruebas.B == 255);  
 
-//std:: cout << GetHtmlHex (rojo);  
+
 assert( "#0000FF" == GetHtmlHex(azul));  
 assert ("#FF0000" == GetHtmlHex(rojo));  
 
-//std:: cout << GetHtmlRgb (GetHtmlHex(azul));  
+
 assert("rgb(0,0,255)" == GetHtmlRgb(GetHtmlHex(azul)));  
 assert("rgb(0,255,0)" == GetHtmlRgb(GetHtmlHex(verde)));  
 
