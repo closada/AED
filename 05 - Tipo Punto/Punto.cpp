@@ -41,7 +41,7 @@ return sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2));
 };
 
 double GetDistanciaAlOrigen(Punto p) {
-return sqrt((p.x*p.x) + (p.y*p.y));
+return GetDistancia({0,0},p);
 };
 
 void Mover (Punto& p, double cant_x, double cant_y){
