@@ -6,6 +6,11 @@
 
 Generar un tipo de dato Color en formato RGB; el mismo con cada uno de los tres componentes en uint8_t. Los valores de los componentes se encuentran en el rango de 0 a 255.
 
+**Léxico:**  
+
+![Funcion Color](https://github.com/closada/AED/blob/master/Imgs/Color.JPG)  
+
+
 **Definición en C++:**  
 
 struct Color {uint8_t R,G,B;};
