@@ -2,9 +2,13 @@
 ## Compilador usado: g++
 ### *Definicion Triangulo*
 
+**Hipótesis del problema:**  
+
+Generar un tipo de dato Triangulo conformado por tres puntos donde el mismo posee un color (en formato RGB y con valores de 0 a 255). Los puntos son cartesianos y pueden tomar cualquier valor (real).
+
 **Léxico:**  
 
-![Funcion Triangulo](https://github.com/closada/AED/blob/master/Imgs/TRIANGULO.JPG)  
+![Funcion Triangulo](https://github.com/closada/AED/blob/master/Imgs/TRIANGULOV02.JPG)  
 
 **Definición en C++:**  
 
@@ -22,6 +26,14 @@ struct Triangulo {
 
 enum struct TipoTriangulo {Escaleno, Isosceles, Equilatero, otro};  
 
+**Conjunto de Operaciones:**  
+
+El conjunto de operaciones son las funciones descriptas en el apartado Prototipo de funciones.  
+
+**Conjunto de Valores:**  
+
+Los valores que puede tomar son todas las combinaciones posibles entre los tres puntos mencionados y su color; dichos puntos individualmente considerados como una combinación cartesiana de valores reales, es decir, "infinitos" (en informática, los tipos de dato reales -double- poseen un máximo de representación).
+
 **Prototipos de funciones:**  
 
 double GetDistancia (Punto,Punto);  
@@ -36,6 +48,30 @@ bool IsEquilatero (const Triangulo&);
 bool IsIsosceles (const Triangulo&);  
 TipoTriangulo GetTipo (const Triangulo&);  
 Punto GetCentro (const Triangulo&);  
+
+**Modelos IPO de las funciones:**  
+
+Punto x Punto -> GetDistancia -> real  
+Triangulo x Color -> CambiarColor -> vacío  
+Triangulo x Punto x Punto x Punto -> DefPuntos -> vacío  
+Triangulo -> ImprimirPuntos -> string (cadena)  
+Triangulo -> GetPerimetro -> real  
+Triangulo x Punto x Natural -> CambiarPuntoEnPos -> vacío  
+Triangulo -> GetArea -> real  
+Triangulo -> IsEscaleno -> booleano  
+Triangulo -> IsEquilatero -> booleano  
+Triangulo -> IsIsosceles -> booleano  
+Triangulo -> GetTipo -> TipoTriangulo  
+Triangulo -> GetCentro -> Punto  
+
+**Definición matemática de algunas funciones:**  
+
+![Funcion GetDistancia](https://github.com/closada/AED/blob/master/Imgs/GetDistancia.JPG)  
+
+![Funcion GetPerimetro](https://github.com/closada/AED/blob/master/Imgs/GetPerimetro.JPG)  
+
+![Funcion IsEquilatero](https://github.com/closada/AED/blob/master/Imgs/IsEquilatero.JPG)  
+
 
 **Pruebas:**  
 
@@ -52,10 +88,10 @@ assert(t.b.y == 0);
 assert(t.c.x == 0);  
 assert(t.c.y == 0);  
 
-
 assert (3.9 <= GetArea(t1) and GetArea(t1) <= 4.1);  
 
 DefPuntos(t1,{1,3},{3,-1},{4,2});  
+
 assert (10.7 <= GetPerimetro(t1) and GetPerimetro(t1) <= 10.8);  
 
 assert (not IsEscaleno(t1));  
