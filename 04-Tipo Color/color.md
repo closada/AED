@@ -37,7 +37,7 @@ void ImprimirColor (const Color&);
 **Modelos IPO de las funciones:**  
 
 Color x Color -> MezclarDosColoresenPIguales -> Color  
-Color x Color x proporcion x proporcion -> MezclarDosColoresProporcion -> Color  
+Color x Color x N x N -> MezclarDosColoresProporcion -> Color  
 Color -> GetComplementario -> Color  
 Color x Color -> Sumar -> Color  
 Color x Color -> Restar -> Color  
@@ -47,32 +47,37 @@ string x string x string x Color -> CrearSvgConTextoEscritoEnAltoContr -> vacío
 Color x Color -> IsIgual -> bool  
 Color -> ImprimirColor -> vacío  
 
+
+**Definición matemática de algunas funciones:**  
+
+![Funcion GetComplementario](https://github.com/closada/AED/blob/master/Imgs/GetComplementario.JPG)  
+
+![Funcion IsIgual](https://github.com/closada/AED/blob/master/Imgs/IsIgual.JPG)  
+
 **Pruebas:**  
 
-pruebas = MezclarDosColoresenPIguales(azul,amarillo);  
-assert (pruebas.R == 127);  
-assert (pruebas.G == 127);  
-assert (pruebas.B == 127);  
-pruebas = MezclarDosColoresProporcion(azul,100,amarillo,100);  
-assert (pruebas.R == 127);  
-assert (pruebas.G == 127);  
-assert (pruebas.B == 127);  
-pruebas = MezclarDosColoresProporcion(azul,80,amarillo,20);  
-assert (pruebas.R == 25);  
-assert (pruebas.G == 25);  
-assert (pruebas.B == 102);  
-pruebas = GetComplementario(rojo);  
-assert (pruebas.R == 0);  
-assert (pruebas.G == 255);  
-assert (pruebas.B == 255);  
+assert (IsIgual(rojo,Sumar(rojo,rojo)));  
+assert(IsIgual({255,0,255},Restar(amarillo,cyan)));  
+
+assert (IsIgual(MezclarDosColoresenPIguales(negro,blanco),{127,127,127}));  
+assert (IsIgual(MezclarDosColoresenPIguales(azul,amarillo),{127,127,127}));  
+
+assert(IsIgual(MezclarDosColoresProporcion(azul,100,amarillo,100),{127,127,127}));  
+assert (IsIgual(MezclarDosColoresProporcion(azul,80,amarillo,20), {25,25,102}));  
+
+assert (IsIgual(GetComplementario(rojo), {0,255,255}));  
+assert (IsIgual(GetComplementario(negro),blanco));  
 
 
-assert( "#0000FF" == GetHtmlHex(azul));  
-assert ("#FF0000" == GetHtmlHex(rojo));  
+assert( "#0000ff" == GetHtmlHex(azul));  
+assert ("#ff0000" == GetHtmlHex(rojo));  
+assert ("#000000" == GetHtmlHex(negro));  
+
 
 
 assert("rgb(0,0,255)" == GetHtmlRgb(GetHtmlHex(azul)));  
 assert("rgb(0,255,0)" == GetHtmlRgb(GetHtmlHex(verde)));  
+assert("rgb(255,255,255)" == GetHtmlRgb(GetHtmlHex(blanco)));  
 
 CrearSvgConTextoEscritoEnAltoContr("mensajever", "A ver si esto funciona bien!!",blanco);  
 CrearSvgConTextoEscritoEnAltoContr("mensaje", "Veo todo bien! :)",amarillo);  
