@@ -52,11 +52,11 @@ Punto GetCentro (const Triangulo&);
 **Modelos IPO de las funciones:**  
 
 Punto x Punto -> GetDistancia -> real  
-Triangulo x Color -> CambiarColor -> vacío  
-Triangulo x Punto x Punto x Punto -> DefPuntos -> vacío  
+Triangulo x Color -> CambiarColor -> Triangulo*  
+Triangulo x Punto x Punto x Punto -> DefPuntos -> Triangulo*  
 Triangulo -> ImprimirPuntos -> string (cadena)  
 Triangulo -> GetPerimetro -> real  
-Triangulo x Punto x Natural -> CambiarPuntoEnPos -> vacío  
+Triangulo x Punto x Natural -> CambiarPuntoEnPos -> Triangulo*  
 Triangulo -> GetArea -> real  
 Triangulo -> IsEscaleno -> booleano  
 Triangulo -> IsEquilatero -> booleano  
