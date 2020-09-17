@@ -65,6 +65,8 @@ Poligono x Natural -> DefPuntosPoligono -> Poligono*
 Poligono -> ImprimirPuntos -> vacío  
 Poligono -> CalculoAnguloInteriorPoligono -> real  
 
+NOTA: Poligono* significa que el Poligono que ingresa a la funcion sale modificado; es decir, en estos casos Poligono es parámetro inout.  
+
 
 **Definición matemática de algunas funciones:**  
 
