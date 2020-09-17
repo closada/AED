@@ -53,15 +53,15 @@ double CalculoAnguloInteriorPoligono (const Poligono&);
 **Modelos IPO de las funciones:**  
 
 Punto x Punto -> GetDistancia -> real  
-Poligono x Punto -> AddVertice -> vacío  
-Poligono x Punto x Natural -> SetVertice -> vacío  
-Poligono -> RemoveVerticeEnd -> vacío  
+Poligono x Punto -> AddVertice -> Poligono*  
+Poligono x Punto x Natural -> SetVertice -> Poligono*  
+Poligono -> RemoveVerticeEnd -> Poligono*  
 Poligono x Natural -> GetVertice -> Punto  
 Poligono -> GetCantidadLados -> natural  
 Poligono -> GetPerimetro -> real  
-Poligono x Color -> CambiarColor -> vacío  
+Poligono x Color -> CambiarColor -> Poligono*  
 Punto x Punto -> IsIgualPunto -> booleano  
-Poligono x Natural -> DefPuntosPoligono -> vacío  
+Poligono x Natural -> DefPuntosPoligono -> Poligono*  
 Poligono -> ImprimirPuntos -> vacío  
 Poligono -> CalculoAnguloInteriorPoligono -> real  
 
