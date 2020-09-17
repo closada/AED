@@ -44,7 +44,7 @@ Punto -> GetEje -> Eje*(enumeración)
 Punto x punto -> IsIgual -> booleano  
 Punto x Punto -> GetDistancia -> real (double)  
 Punto -> GetDistanciaAlOrigen -> real (double)  
-Punto x real x real -> Mover -> vacío  
+Punto x real x real -> Mover -> Punto*  
 
 **Definición matemática de algunas funciones:**  
 
