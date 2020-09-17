@@ -46,6 +46,9 @@ Punto x Punto -> GetDistancia -> real (double)
 Punto -> GetDistanciaAlOrigen -> real (double)  
 Punto x real x real -> Mover -> Punto*  
 
+NOTA: Punto* significa que el Punto que ingresa a la funcion sale modificado; es decir, en estos casos Punto es parámetro inout.  
+
+
 **Definición matemática de algunas funciones:**  
 
 ![Funcion GetDistancia](https://github.com/closada/AED/blob/master/Imgs/GetDistancia.JPG)  
