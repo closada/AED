@@ -64,6 +64,9 @@ Triangulo -> IsIsosceles -> booleano
 Triangulo -> GetTipo -> TipoTriangulo  
 Triangulo -> GetCentro -> Punto  
 
+NOTA: Triangulo* significa que el Triangulo que ingresa a la funcion sale modificado; es decir, en estos casos Triangulo es parámetro inout.  
+
+
 **Definición matemática de algunas funciones:**  
 
 ![Funcion GetDistancia](https://github.com/closada/AED/blob/master/Imgs/GetDistancia.JPG)  
