@@ -6,10 +6,10 @@ RM = rm -f *.o
 $(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $(BIN)
 
-color.o: Poligono.cpp Poligono.h
+Poligono.o: Poligono.cpp Poligono.h
 	$(CC) -c Poligono.cpp -o Poligono.o
 
-colorTest.o: PoligonoTest.cpp Poligono.h
+PoligonoTest.o: PoligonoTest.cpp Poligono.h
 	$(CC) -c PoligonoTest.cpp -o PoligonoTest.o
 
 .PHONY: clean
