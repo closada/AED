@@ -6,10 +6,10 @@ RM = rm -f *.o
 $(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $(BIN)
 
-color.o: Triangulo.cpp Triangulo.h
+triangulo.o: Triangulo.cpp Triangulo.h
 	$(CC) -c Triangulo.cpp -o Triangulo.o
 
-colorTest.o: TrianguloTest.cpp Triangulo.h
+trianguloTest.o: TrianguloTest.cpp Triangulo.h
 	$(CC) -c TrianguloTest.cpp -o TrianguloTest.o
 
 .PHONY: clean
