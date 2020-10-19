@@ -8,7 +8,7 @@ Generar un programa que reciba un flujo de datos de entrada (stream) compuesto p
 
 * En primer caso, el flujo de datos de entrada recibe primero el Color del mismo (delimitado los tres valores de RED, GREEN y BLUE con comas), luego la cantidad de puntos y por último los puntos cartesianos mencionados (delimitando sus valores con coma). El delimitador entre el color, la cantiad de puntos y los puntos mismos es el ESPACIO. El delimitador entre polígonos es el *enter*. Este es el caso **CC**.
 
-* En el segundo caso, el flujo de datos recibe los datos en el mismo orden, exceptuando la cantidad de puntos el cual NO lo define como un parámetro a tomar. El delimitador entre polígonos es el ";". Este caso se encuentran en la carpeta **SC**.
+* En el segundo caso, el flujo de datos tiene los datos en el mismo orden, exceptuando la cantidad de puntos que no lo posee como un parametro a tomar. El delimitador entre polígonos es el ";". Este caso se encuentran en la carpeta **SC**.
 
 Tomaré como flujos de datos de entrada y salida los cin y cout de la librería *iostream* de C++ y para las pruebas los archivos TXT en la línea de comando con los operadores '>' y '<'.
 
