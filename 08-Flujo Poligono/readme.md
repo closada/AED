@@ -1,6 +1,6 @@
 # Camila Victoria Losada - Legajo 167356-7
 ## Compilador usado: g++
-### *Definicion Poligono*
+### *Definicion Flujo Poligonos*
 
 **Hipótesis del problema:**  
 
