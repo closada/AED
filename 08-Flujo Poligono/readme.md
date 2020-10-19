@@ -10,6 +10,8 @@ Generar un programa que reciba un flujo de datos de entrada (stream) compuesto p
 
 * En el segundo caso, el flujo de datos recibe los datos en el mismo orden, exceptuando la cantidad de puntos el cual NO lo define como un parámetro a tomar. El delimitador entre polígonos es el ";". Este caso se encuentran en la carpeta **SC**.
 
+Tomaré como flujos de datos de entrada y salida los cin y cout de la librería *iostream* de C++ y para las pruebas los archivos TXT en la línea de comando con los operadores '>' y '<'.
+
 **Definición Matemática de polígono:**  
 
 ![Funcion Poligono](https://github.com/closada/AED/blob/master/Imgs/POLIGONOV02.JPG) 
