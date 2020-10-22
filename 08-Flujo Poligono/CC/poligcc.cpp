@@ -63,7 +63,5 @@ for(int i = 0 ;i < pol.cant_puntos ;i++ ){
 
 
 void AgregarPunto(Poligono& pol, Punto p, unsigned pos) {
-pol.Puntos.at(pos).x = p.x;
-pol.Puntos.at(pos).y = p.y;
-
+pol.Puntos.at(pos) = p;
 }
