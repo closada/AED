@@ -26,7 +26,7 @@ Punto x Punto -> GetDistancia -> real (double)
 
 NOTA: Poligono* y Punto* significa que los mismos que ingresan a la funcion salen modificados; es decir, en estos casos Poligono  y Punto son parámetros inout.  
 
-** Pruebas (main): **
+**Pruebas (main):**
 
 double VALOR{100};  
 int main () {   
