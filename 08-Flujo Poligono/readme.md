@@ -4,11 +4,13 @@
 
 **Hipótesis del problema:**  
 
-Generar un programa que reciba un flujo de datos de entrada (stream) compuesto por polígonos y los imprima (o guarde) en otro flujo de datos de salida.
+Generar un programa que reciba un flujo de datos de entrada (stream) compuesto por polígonos e imprima (o guarde) en otro flujo de datos de salida los poligonos cuyo perimetro sea mayor a 'X' (valor definido como variable global modificable).
 
 El flujo de datos de entrada recibe el Color del mismo (delimitado los tres valores de RED, GREEN y BLUE con comas) y por último los puntos cartesianos (delimitando sus valores con coma). El delimitador entre el color y los diversos puntos es el ESPACIO. El delimitador entre polígonos es el "*;*".
 
 Tomaré como flujos de datos de entrada y salida los cin y cout de la librería *iostream* de C++ y para las pruebas los archivos TXT en la línea de comando con los operadores '>' y '<'.
+
+**Linea de comando: ** polig.exe < datos_polig.txt > salida.txt
 
 **Definición Matemática de polígono:**  
 
