@@ -11,17 +11,19 @@ struct Color {uint8_t R,G,B;};
 
 struct Nodo {
     Punto p;
-    Nodo* next = nullptr;
+    Nodo* next{nullptr};
 };
 
 struct Poligono {
     unsigned cant_puntos = 0;
-    Nodo* primerNodo = nullptr;
+    Nodo* primerNodo;
     Color color;
 };
 
+void AddVerticeInicio (Poligono&, Punto);
 void AddVertice (Poligono&, Punto);
 void RemoveVerticeEnd (Poligono&);
+void RemoveVerticeInicio (Poligono&);
 void ImprimirPunto(Punto);
 void ImprimirPoligono (Poligono&);
 unsigned GetCantidadLados (const Poligono&);
@@ -31,28 +33,27 @@ double CalculoAnguloInteriorPoligono (const Poligono&);
 bool IsIgualPunto (Punto, Punto);
 void SetVertice (Poligono&, Punto, unsigned); // Poligono, punto nuevo, posicion en array de poligono
 Punto GetVertice (const Poligono&, unsigned); // devuelve el vertice en la posicion que se le pasa del punto, ejemplo punto pos 1 es at(0) en el poligono
-
 double GetPerimetro (const Poligono&);
-
+void LiberarEspacio (Poligono&);
 
 Color rojo{255,0,0}, blanco{255,255,255};
 
 int main (){
-Poligono p1;
+Poligono p1,p2;
 
-AddVertice(p1,{2,2});
-AddVertice(p1,{3,3});
-AddVertice(p1,{-3,0});
-AddVertice(p1,{3.14,127});
-AddVertice(p1,{0,0});
-AddVertice(p1,{0.15,-8});
-AddVertice(p1,{-3,1});
+AddVerticeInicio(p1,{2,2});
+AddVerticeInicio(p1,{3,3});
+AddVerticeInicio(p1,{-3,0});
+AddVerticeInicio(p1,{3.14,127});
+AddVerticeInicio(p1,{0,0});
+AddVerticeInicio(p1,{0.15,-8});
+AddVerticeInicio(p1,{-3,1});
 
 ImprimirPoligono(p1);
 
 CambiarColor(p1,rojo);
-RemoveVerticeEnd(p1);
-RemoveVerticeEnd(p1);
+RemoveVerticeInicio(p1);
+RemoveVerticeInicio(p1);
 
 ImprimirPoligono(p1);
 
@@ -64,10 +65,23 @@ ImprimirPunto(GetVertice(p1,1));
 ImprimirPunto(GetVertice(p1,GetCantidadLados(p1)));
 
 
-std::cout << "\n" << GetPerimetro(p1);
+std::cout << "\n" << GetPerimetro(p1) << "\n\n";
+
+CambiarColor(p2,blanco);
+AddVerticeInicio(p2,{1,1});
+AddVerticeInicio(p2,{2,2});
+AddVerticeInicio(p2,{3,3});
+AddVerticeInicio(p2,{4,4});
+
+RemoveVerticeInicio(p2);
+
+ImprimirPoligono(p2);
+LiberarEspacio(p1);
+LiberarEspacio(p2);
+
 }
 
-void AddVertice (Poligono& pol, Punto p) {
+/*void AddVertice (Poligono& pol, Punto p) {
 if (pol.primerNodo == nullptr){ // pregunta si el primer nodo es un punto nulo (sin datos)
     pol.primerNodo = new Nodo;
     pol.primerNodo->p = p;      // -> operador desreferencia!!!
@@ -79,15 +93,22 @@ aux = aux->next;                //aux seria el ultimo nodo con el ultimo punto
 aux->next = new Nodo;
 aux->next->p = p;
 pol.cant_puntos++;};
-} 
+} */
+
+void AddVerticeInicio (Poligono& pol, Punto p) {
+auto aux = new Nodo;
+aux->p = p;
+aux->next = pol.primerNodo;
+pol.primerNodo = aux;
+pol.cant_puntos++;};
 
 void ImprimirPoligono (Poligono& pol){
 std::cout << "Color: (" << std::to_string(pol.color.R) << "," << std::to_string(pol.color.G) << "," << std::to_string(pol.color.B) << ")\n";
-for (Nodo* aux = pol.primerNodo; aux != nullptr; aux = aux->next)
+for (Nodo* aux = pol.primerNodo; aux ; aux = aux->next)
 ImprimirPunto(aux->p);
 };
 
-void RemoveVerticeEnd (Poligono& pol){
+/*void RemoveVerticeEnd (Poligono& pol){
 Nodo* aux = pol.primerNodo;
 Nodo * ant;
 while (aux->next != nullptr){
@@ -96,7 +117,17 @@ aux = aux->next;}
 delete aux;
 ant->next = nullptr;
 pol.cant_puntos --;
+}; */
+
+void RemoveVerticeInicio (Poligono& pol){
+if (pol.primerNodo != nullptr){
+auto* aux = pol.primerNodo;
+pol.primerNodo = pol.primerNodo->next;
+delete aux;
+pol.cant_puntos --;
+}
 };
+
 
 void ImprimirPunto(Punto p) {
        std::cout << "Punto: (" << p.x << "," << p.y << ")\n";
@@ -150,4 +181,12 @@ aux = aux->next;
 };
 per = per + GetDistancia(aux->p,p.primerNodo->p);
 return per;
+};
+
+void LiberarEspacio (Poligono& p) {
+
+for (Nodo* aux = p.primerNodo; aux; aux = p.primerNodo){
+p.primerNodo = p.primerNodo->next;
+delete aux;};
+p.cant_puntos = 0;
 };
