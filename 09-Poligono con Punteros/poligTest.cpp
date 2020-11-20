@@ -1,5 +1,5 @@
 #include "polig.h"
-double MAX{100};
+double MAX{250};
 
 int main (){
 
@@ -88,6 +88,6 @@ LiberarEspacio(p2);
 
 /************** prueba con flujos **********************/
 
-CopiarPoligonosConPerimetrosMayoresA(250,"datos_polig.txt","salida.txt");
+CopiarPoligonosConPerimetrosMayoresA(MAX,"datos_polig.txt","salida.txt");
 
 }
