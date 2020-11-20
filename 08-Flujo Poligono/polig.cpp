@@ -6,9 +6,12 @@
 #include <array>
 #include <cmath>
 
+
+
+
 double GetDistancia (Punto p1, Punto p2){
 return sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2));
-};
+}
 
 
 double GetPerimetro (const Poligono& p){
@@ -18,7 +21,7 @@ for (unsigned i=0;i<p.cant_puntos; i++)
 per = per + GetDistancia(p.Puntos.at(i),p.Puntos.at(0));
 };
 return per;
-};
+}
 
 bool ExtraerPunto(std::istream& in, Punto& p){
 	char c; //coma, numeral
@@ -82,4 +85,21 @@ void AgregarPunto(Poligono& pol, Punto p, unsigned pos) {
 pol.Puntos.at(pos) = p;
 assert (pol.Puntos.at(pos).x == p.x); // prueba
 assert (pol.Puntos.at(pos).y == p.y); // prueba
+}
+
+void CopiarPoligonosConPerimetrosMayoresA(double x,std::string nombrein,std::string nombreout) {
+std::ifstream inpol;
+inpol.open(nombrein);
+
+
+std::ofstream outpol;
+outpol.open(nombreout);
+
+Poligono pol;
+
+	while( ExtraerPoligono(inpol,pol) ) 
+		if(GetPerimetro(pol) > x) 
+		GuardarPoligono(outpol,pol);
+
+
 }

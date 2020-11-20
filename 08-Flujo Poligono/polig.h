@@ -5,6 +5,8 @@ Camila Victoria Losada */
 #include <fstream>
 #include <cstdint>
 #include <array>
+#include <cassert>
+
 
 struct Punto {double x,y;};
 
@@ -24,3 +26,5 @@ void AgregarPunto(Poligono&, Punto, unsigned);
 void GuardarPoligono(std::ostream&,Poligono&);
 double GetPerimetro (const Poligono&);
 double GetDistancia (Punto,Punto);
+
+void CopiarPoligonosConPerimetrosMayoresA(double,std::string,std::string);
