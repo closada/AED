@@ -36,7 +36,7 @@ Poligono x Flujo de salida -> GuardarPuntos -> vacío (nos interesa su efecto de
 Poligono -> GetPerimetro -> double  
 Punto x Punto -> GetDistancia -> double  
 Poligono -> borrarDatosPoligono -> vacío (nos interesa su efecto de lado)  
-string * string -> CopiarPoligonosConPerimetrosMayoresA -> void (nos interesa su efecto de lado)  
+double x string x string -> CopiarPoligonosConPerimetrosMayoresA -> void (nos interesa su efecto de lado)  
 
 NOTA: Poligono* y Punto* significa que los mismos que ingresan a la funcion salen modificados; es decir, en estos casos Poligono  y Punto son parámetros inout.  
 
