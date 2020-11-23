@@ -6,6 +6,7 @@ Camila Victoria Losada */
 #include <cstdint>
 #include <array>
 #include <cassert>
+#include <cmath>
 
 
 struct Punto {double x,y;};
@@ -18,13 +19,20 @@ struct Poligono {
     Color color;
 };
 
-bool ExtraerPunto(std::istream&,Punto&);
 bool ExtraerPoligono(std::istream&, Poligono&);
 bool ExtraerColor(std::istream&, Color&);
 bool ExtraerPuntos(std::istream&, Poligono&);
+bool ExtraerPunto(std::istream&,Punto&);
 void AgregarPunto(Poligono&, Punto, unsigned);
-void GuardarPoligono(std::ostream&,Poligono&);
+
+
+void GuardarPunto(const Punto,std::ostream&);
+void GuardarPoligono (const Poligono&,std::ostream&);
+void GuardarColor (const Color&,std::ostream&);
+void GuardarPuntos( const Poligono&, std::ostream&);
 double GetPerimetro (const Poligono&);
 double GetDistancia (Punto,Punto);
+void borrarDatosPoligono(Poligono&);
+
 
 void CopiarPoligonosConPerimetrosMayoresA(double,std::string,std::string);
