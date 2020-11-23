@@ -126,11 +126,10 @@ aux->p = p;
 }
 
 void LiberarEspacio (Poligono& p) {
+unsigned cantidad = p.cant_puntos;
+for (unsigned i=0;i<=cantidad;i++)
+RemoveVerticeFront(p);
 
-for (auto aux = p.primerNodo; aux; aux = p.primerNodo){
-p.primerNodo = p.primerNodo->next;
-delete aux;};
-p.cant_puntos = 0;
 }
 
 /************************* funciones EXTRAER *****************************/
