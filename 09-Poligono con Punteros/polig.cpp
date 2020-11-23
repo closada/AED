@@ -5,6 +5,7 @@ struct Nodo {
     Nodo* next{nullptr};
 };
 
+/************ funciones ADD *********************/
 
 void AddVerticeEnd (Poligono& pol, Punto p) {
 auto nuevo = new Nodo;
@@ -14,8 +15,7 @@ pol.cant_puntos++;
 
 if (pol.primerNodo == nullptr){ // pregunta si el primer nodo es un puntero nulo (sin datos)
     pol.primerNodo = nuevo;
-    //pol.primerNodo->p = p;      // -> operador desreferencia!!!
-    
+       
 	return;}
 
 // LISTA NO VACIA
@@ -35,11 +35,29 @@ aux->next = pol.primerNodo;
 pol.primerNodo = aux;
 pol.cant_puntos++;}
 
-void ImprimirPoligono (Poligono& pol){
-ImprimirColor(pol.color);
-for (auto aux = pol.primerNodo; aux ; aux = aux->next)
-ImprimirPunto(aux->p);
+/********************* funciones GUARDAR *******************/
+
+void GuardarPoligono (const Poligono& pol,std::ostream& out){
+GuardarColor(pol.color, out);
+GuardarPuntos(pol,out);
 }
+
+void GuardarColor (const Color& c, std::ostream& out){
+out << "RGB(" << (unsigned) c.R << "," << (unsigned) c.G << "," << (unsigned) c.B << ") ";
+}
+
+void GuardarPuntos (const Poligono& pol,std::ostream& out){
+out << pol.cant_puntos << " Puntos: ";
+for (auto aux = pol.primerNodo; aux ; aux = aux->next)
+GuardarPunto(aux->p, out);
+out << "\n";
+}
+
+void GuardarPunto(const Punto p,std::ostream& out) {
+       out << "(" << p.x << "," << p.y << ") ";
+}
+
+/********************** funciones REMOVE ************************/
 
 void RemoveVerticeEnd (Poligono& pol){
 auto aux = pol.primerNodo;
@@ -61,10 +79,7 @@ pol.cant_puntos --;
 }
 }
 
-
-void ImprimirPunto(Punto p) {
-       std::cout << "Punto: (" << p.x << "," << p.y << ")\n";
-}
+/***************** funciones GET *************************/
 
 unsigned GetCantidadLados (const Poligono& p){
 return p.cant_puntos;
@@ -72,29 +87,6 @@ return p.cant_puntos;
 
 double GetDistancia (Punto p1, Punto p2){
 return sqrt(pow(p2.x - p1.x,2) + pow(p2.y - p1.y,2));
-}
-
-void CambiarColor (Poligono& pol, Color c){
-pol.color.R = c.R;
-pol.color.G = c.G;
-pol.color.B = c.B;
-}
-
-double CalculoAnguloInteriorPoligono (const Poligono& pol){
-
-return 180 - (360 / pol.cant_puntos);
-}
-
-bool IsIgualPunto (Punto p1, Punto p2){
-return (p1.x == p2.x) and (p1.y == p2.y);
-}
-
-void SetVertice (Poligono& pol, Punto p, unsigned x){
-auto aux = pol.primerNodo;
-for (unsigned i = 1; i < x;i++) 
-aux = aux->next;              
-
-aux->p = p;
 }
 
 Punto GetVertice (const Poligono& p, unsigned posicion){
@@ -116,6 +108,23 @@ per = per + GetDistancia(aux->p,p.primerNodo->p);
 return per;
 }
 
+/*************** funciones EXTRAS **********************/
+void CambiarColor (Poligono& pol, Color c){
+pol.color = c;
+}
+
+bool IsIgualPuntos (Punto p1, Punto p2){
+return (p1.x == p2.x) and (p1.y == p2.y);
+}
+
+void SetVertice (Poligono& pol, Punto p, unsigned x){
+auto aux = pol.primerNodo;
+for (unsigned i = 1; i < x;i++) 
+aux = aux->next;              
+
+aux->p = p;
+}
+
 void LiberarEspacio (Poligono& p) {
 
 for (auto aux = p.primerNodo; aux; aux = p.primerNodo){
@@ -124,7 +133,7 @@ delete aux;};
 p.cant_puntos = 0;
 }
 
-/************************* funciones plus poligono *****************************/
+/************************* funciones EXTRAER *****************************/
 
 bool ExtraerPunto(std::istream& in, Punto& p){
 	char c; //coma, numeral
@@ -132,14 +141,6 @@ bool ExtraerPunto(std::istream& in, Punto& p){
 	in.get(c);
 	in >> p.y;
 	return (bool) in;
-}
-
-
-void GuardarPoligono(std::ostream& out,Poligono& pol){
-out << "RGB(" << std::to_string(pol.color.R) << "," << std::to_string(pol.color.G) << "," << std::to_string(pol.color.B) << ") Puntos: ";
-for (unsigned i=1;i<=pol.cant_puntos;i++)
-out << "(" << GetVertice(pol,i).x << ";" << GetVertice(pol,i).y << ") ";
-out << "\n";
 }
 
 bool ExtraerPoligono(std::istream& in, Poligono& p){
@@ -155,18 +156,16 @@ bool ExtraerColor(std::istream& in, Color& c){
 	unsigned ver;
 	in >> ver;
 	c.R = (uint8_t) ver;
-	assert(c.R == (uint8_t) ver); //prueba
 	in.get(caracter);
 	in >> ver;
 	c.G = (uint8_t) ver;
-	assert(c.G == (uint8_t) ver); // prueba
 	in.get(caracter);
 	in >> ver;
 	c.B = (uint8_t) ver;
-	assert(c.B == (uint8_t) ver); // prueba
 	in.get(caracter);
 	return (bool) in;
 }
+
 bool ExtraerPuntos(std::istream& in, Poligono& pol){
 Punto p;
 char c{'n'};
@@ -177,10 +176,13 @@ while(c != ';'){
 		ExtraerPunto(in, p);
         AddVerticeEnd(pol,p);
 		in.get(c);
+		
 	}
-
+	
 	return (bool) in;
 }
+
+/****************** funcion CONDICION_GUARDAR_POLIGONOS ***************/
 
 void CopiarPoligonosConPerimetrosMayoresA(double x,std::string nombrein,std::string nombreout) {
 std::ifstream inpol;
@@ -194,17 +196,9 @@ Poligono pol{0};
 
 	while( ExtraerPoligono(inpol,pol) ){
 		if(GetPerimetro(pol) > x) 
-		GuardarPoligono(outpol,pol);
+		GuardarPoligono(pol,outpol);
 		LiberarEspacio(pol);
 	}
-
+inpol.close();
+outpol.close();
 }
-
-
-/****************************** funciones de Color *********************************/
-
-
-void ImprimirColor (const Color& c){
-std::cout << "RGB(" << std::to_string(c.R) << "," << std::to_string(c.G) << "," << std::to_string(c.B) << ")\n";
-}
-
