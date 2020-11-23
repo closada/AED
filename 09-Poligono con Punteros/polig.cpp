@@ -75,8 +75,7 @@ if (pol.primerNodo != nullptr){
 auto aux = pol.primerNodo;
 pol.primerNodo = pol.primerNodo->next;
 delete aux;
-pol.cant_puntos --;
-}
+pol.cant_puntos --;}
 }
 
 /***************** funciones GET *************************/
@@ -99,12 +98,12 @@ return aux->p;
 
 double GetPerimetro (const Poligono& p){
 double per {0};
-auto aux = p.primerNodo;
-for (unsigned i=1;i<p.cant_puntos; i++){
-per = per + GetDistancia(aux->p,aux->next->p);
-aux = aux->next;              
-};
-per = per + GetDistancia(aux->p,p.primerNodo->p);
+
+for (unsigned i=1;i<p.cant_puntos; i++)
+per = per + GetDistancia(GetVertice(p,i),GetVertice(p,i+1));
+
+per = per + GetDistancia(GetVertice(p,GetCantidadLados(p)),GetVertice(p,1));
+
 return per;
 }
 
