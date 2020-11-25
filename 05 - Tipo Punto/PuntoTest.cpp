@@ -18,11 +18,9 @@ assert (IsIgual({2,2},{2,2}));
 Mover(p1,-1,5);
 Mover(p2,0,0);
 
-assert (p1.x == 1);
-assert (p1.y == 7);
-assert (p2.x == -5);
-assert (p2.y == 2.2);
-
+assert (IsIgual(p1,{1,7}));
+assert (IsIgual(p2,{-5,2.2}));
+    
 assert (Cuadrante::c1 == GetCuadrante({1,2}));
 assert (Cuadrante::c2 == GetCuadrante({-3,2}));
 assert (Cuadrante::c3 == GetCuadrante({-3,-11}));
