@@ -5,6 +5,12 @@
 #include <iomanip>
 #include "color.h"
 
+Color GetColor (void){
+Color col;
+for (unsigned i=0; i<3;i++)
+std::cin >> col.R >> col.G >> col.B;
+return col;
+}
 
 
 Color MezclarDosColoresenPIguales (const Color& col1,const Color& col2){
@@ -16,7 +22,7 @@ return Final;
 };
 
 void ImprimirColor (const Color& c){
-std::cout << "RGB(" << std::to_string(c.R) << "," << std::to_string(c.G) << "," << std::to_string(c.B) << ")\n";
+std::cout << "RGB(" << (unsigned) c.R << "," << (unsigned) c.G << "," << (unsigned) c.B << ")\n";
 };
 
 Color MezclarDosColoresProporcion (const Color& c1, unsigned p1, const Color& c2, unsigned p2){
@@ -59,7 +65,7 @@ return Resta;
 
 std::string GetHtmlHex (const Color& c1){
 std::stringstream ver;
-ver << "#" << std::hex <<  std::setfill('0') << std::setw(2) << int(c1.R)  <<  std::setfill('0') << std::setw(2) << int(c1.G) <<  std::setfill('0') << std::setw(2) << int(c1.B) ;
+ver << "#" << std::hex <<  std::setfill('0') << std::setw(2) << (unsigned) c1.R  <<  std::setfill('0') << std::setw(2) << (unsigned) c1.G <<  std::setfill('0') << std::setw(2) << (unsigned)c1.B ;
 return ver.str();
 };
 
